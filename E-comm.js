@@ -3,6 +3,7 @@ const cartEl = document.getElementById("cart");
 const cartBtn = document.getElementById("cartBtn");
 const checkoutBtn = document.getElementById("checkoutBtn");
 const websiteHead = document.getElementById("website");
+const icon = `<i class="fa-solid fa-check"></i>`;
 
 async function fetchProducts() {
   try {
@@ -102,6 +103,7 @@ function totalPrice() {
   const keys = Object.keys(arr);
   for (let i = 0; i < keys.length; i++) {
     const quantity = getQuantity(arr[`${keys[i]}`].id);
+    arr[`${keys[i]}`].insertAdjacentHTML("afterbegin", icon);
     const price = getPrice(arr[`${keys[i]}`].id);
     totPrice = totPrice + quantity * price;
   }
